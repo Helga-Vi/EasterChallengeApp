@@ -1,43 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Text, View, StyleSheet, TouchableOpacity, Animated } from "react-native";
 import {Audio} from 'expo-av';
+import HappyEasterBanner from '@/components/HappyEasterBanner';
 import ImagePanel from '@/components/imagePanel';
 
-interface HappyEasterBannerState {
-  isVisible: boolean;
-  opacity: number;
-}
-
-
-const HappyEasterBanner = () => {
-  const [state, setState] = useState<HappyEasterBannerState>({
-    isVisible: false,
-    opacity: 0,
-  });
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setState(prevState => {
-        if (prevState.opacity === 1) return { ...prevState, opacity: 0 };
-        return { ...prevState, opacity: prevState.opacity + 0.01 };
-      });
-    }, 50);
-
-    return () => clearInterval(timer);
-  }, []);
-
-  const { opacity } = state;
-
-  return (
-    <Animated.View style={[
-      styles.textContainer,
-      { opacity },
-      { marginTop: 75}
-    ]}>
-    <Text style={styles.textStyle}>Happy Easter!</Text>
-    </Animated.View>
-  );
-}; 
 
 const Index = () => {
   //const playCluckSound = async () => {
@@ -66,8 +32,7 @@ const Index = () => {
       <HappyEasterBanner />
       <ImagePanel />
       <TouchableOpacity 
-        style={styles.cluckButton}
-        
+        style={styles.cluckButton} 
       >
         <Text style={styles.buttonText}>Cluck here</Text>
       </TouchableOpacity>
@@ -82,20 +47,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: 'lightgreen',
     paddingVertical: 50,
-  },
-  textContainer: {
-    opacity: 0,
-    transitionProperty: 'opacity',
-    transitionDuration: '500ms',
-    marginBottom: 50, 
-  },
-  textStyle: {
-    fontSize: 40,
-    fontWeight: 'bold',
-    color: '#FF6347',
-    textShadowOffset: { width: 2, height: 2 },
-    textShadowRadius: 5,
-    textShadowColor: 'rgba(255,255,255,0.5)',
   },
   cluckButton: {
     width: 200,
