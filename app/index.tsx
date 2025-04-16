@@ -2,47 +2,41 @@ import React, { useState, useEffect } from 'react';
 import { Text, View, StyleSheet, TouchableOpacity, Animated } from "react-native";
 import {Audio} from 'expo-av';
 
+interface HappyEasterBannerState {
+  isVisible: boolean;
+  opacity: number;
+}
+
+
 const HappyEasterBanner = () => {
-  const [isVisible, setIsVisible] = useState(false);
-  const animatedValue = new Animated.Value(0);
-
-  useEffect(() => {
-    Animated.loop(
-      Animated.sequence([
-        Animated.timing(animatedValue, {
-          toValue: 1,
-          duration: 1000,
-          useNativeDriver: true,
-        }),
-        Animated.timing(animatedValue, {
-          toValue: 0,
-          duration: 500,
-          useNativeDriver: true,
-        }),
-      ])
-    ).start();
-
-    return () => {
-      animatedValue.stopAnimation();
-    };
-  }, []);
-
-  const opacity = animatedValue.interpolate({
-    inputRange: [0, 1],
-    outputRange: [0, 1],
+  const [state, setState] = useState<HappyEasterBannerState>({
+    isVisible: false,
+    opacity: 0,
   });
 
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setState(prevState => {
+        if (prevState.opacity === 1) return { ...prevState, opacity: 0 };
+        return { ...prevState, opacity: prevState.opacity + 0.01 };
+      });
+    }, 50);
+
+    return () => clearInterval(timer);
+  }, []);
+
+  const { opacity } = state;
+
   return (
-    <Animated.Text style={[
-      styles.textStyle,
+    <Animated.View style={[
+      styles.textContainer,
+      { opacity },
       { 
         marginTop: 75  // Adjust this value as needed for vertical positioning
       }
     ]}>
-    <Animated.Text style={{ opacity }}>
-      Happy Easter!
-    </Animated.Text>
-    </Animated.Text>
+    <Text style={styles.textStyle}>Happy Easter!</Text>
+    </Animated.View>
   );
 }; 
 
@@ -69,7 +63,7 @@ const Index = () => {
   //};
 
   return (
-    <View style={styles.container}>
+    <View style={styles.textContainer}>
       <HappyEasterBanner />
       <TouchableOpacity 
         style={styles.cluckButton}
@@ -82,11 +76,14 @@ const Index = () => {
 };
 
 const styles = StyleSheet.create({
-  container: {
+  textContainer: {
     flex: 1,
     justifyContent: 'space-between',
     alignItems: 'center',
     backgroundColor: 'lightgreen',
+    opacity: 0,
+    transitionProperty: 'opacity',
+    transitionDuration: '500ms',
   },
   textStyle: {
     fontSize: 40,
