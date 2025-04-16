@@ -47,33 +47,33 @@ const HappyEasterBanner = () => {
 }; 
 
 const Index = () => {
-  const playCluckSound = async () => {
-    try {
-      await Audio.setCategoryAsync('Playback');
+  //const playCluckSound = async () => {
+    //try {
+      //await Audio.setCategoryAsync('Playback');
     
-      const { sound, error } = await Audio.Sound.createAsync(
-        require('./sounds/cluck.mp3')
-      );
+      //const { sound, error } = await Audio.Sound.createAsync(
+        //require('./sounds/cluck.mp3')
+      //);
   
-      if (error) {
-        console.log('Failed to load sound', error);
-        return;
-      }
+      //if (error) {
+        //console.log('Failed to load sound', error);
+        //return;
+      //}
   
-      await sound.playAsync();
-      await sound.setVolumeAsync(1.0);
+      //await sound.playAsync();
+      //await sound.setVolumeAsync(1.0);
   
-    } catch (error) {
-      console.error("Error playing sound", error);
-    }
-  };
+    //} catch (error) {
+      //console.error("Error playing sound", error);
+    //}
+  //};
 
   return (
     <View style={styles.container}>
       <HappyEasterBanner />
       <TouchableOpacity 
         style={styles.cluckButton}
-        onPress={playCluckSound}
+        
       >
         <Text style={styles.buttonText}>Cluck here</Text>
       </TouchableOpacity>
