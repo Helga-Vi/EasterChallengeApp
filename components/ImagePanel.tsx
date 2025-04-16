@@ -7,7 +7,7 @@ const ImagePanel = () => {
   return (
     <View style={styles.imageContainer}>
       <Image source={require('../assets/images/FREE-Daffodils-Clipart-.png')} style={styles.image} />
-      <Image source={require('../assets/images/chicken.jpg')} style={styles.image} />
+      <Image source={require('../assets/images/chicken.png')} style={styles.image} />
     </View>
   );
 };
