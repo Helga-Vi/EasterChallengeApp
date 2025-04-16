@@ -31,9 +31,7 @@ const HappyEasterBanner = () => {
     <Animated.View style={[
       styles.textContainer,
       { opacity },
-      { 
-        marginTop: 75  // Adjust this value as needed for vertical positioning
-      }
+      { marginTop: 75}
     ]}>
     <Text style={styles.textStyle}>Happy Easter!</Text>
     </Animated.View>
@@ -63,7 +61,7 @@ const Index = () => {
   //};
 
   return (
-    <View style={styles.textContainer}>
+    <View style={styles.container}>
       <HappyEasterBanner />
       <TouchableOpacity 
         style={styles.cluckButton}
@@ -76,11 +74,13 @@ const Index = () => {
 };
 
 const styles = StyleSheet.create({
-  textContainer: {
+  container: {
     flex: 1,
-    justifyContent: 'space-between',
+    justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: 'lightgreen',
+  },
+  textContainer: {
     opacity: 0,
     transitionProperty: 'opacity',
     transitionDuration: '500ms',
@@ -92,11 +92,6 @@ const styles = StyleSheet.create({
     textShadowOffset: { width: 2, height: 2 },
     textShadowRadius: 5,
     textShadowColor: 'rgba(255,255,255,0.5)',
-  },
-  message: {
-    marginTop: 20,
-    fontSize: 16,
-    color: '#333333',
   },
   cluckButton: {
     width: 200,
