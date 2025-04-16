@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Text, View, StyleSheet, TouchableOpacity, Animated } from "react-native";
 import {Audio} from 'expo-av';
+import ImagePanel from '@/components/imagePanel';
 
 interface HappyEasterBannerState {
   isVisible: boolean;
@@ -63,6 +64,7 @@ const Index = () => {
   return (
     <View style={styles.container}>
       <HappyEasterBanner />
+      <ImagePanel />
       <TouchableOpacity 
         style={styles.cluckButton}
         
@@ -76,14 +78,16 @@ const Index = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
+    justifyContent: 'flex-start',
     alignItems: 'center',
     backgroundColor: 'lightgreen',
+    paddingVertical: 50,
   },
   textContainer: {
     opacity: 0,
     transitionProperty: 'opacity',
     transitionDuration: '500ms',
+    marginBottom: 50, 
   },
   textStyle: {
     fontSize: 40,
