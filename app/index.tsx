@@ -1,32 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Text, View, StyleSheet, TouchableOpacity, Animated } from "react-native";
-import {Audio} from 'expo-av';
 import HappyEasterBanner from '@/components/HappyEasterBanner';
 import ImagePanel from '@/components/imagePanel';
 
 
 const Index = () => {
-  //const playCluckSound = async () => {
-    //try {
-      //await Audio.setCategoryAsync('Playback');
-    
-      //const { sound, error } = await Audio.Sound.createAsync(
-        //require('./sounds/cluck.mp3')
-      //);
-  
-      //if (error) {
-        //console.log('Failed to load sound', error);
-        //return;
-      //}
-  
-      //await sound.playAsync();
-      //await sound.setVolumeAsync(1.0);
-  
-    //} catch (error) {
-      //console.error("Error playing sound", error);
-    //}
-  //};
-
   return (
     <View style={styles.container}>
       <HappyEasterBanner />
