@@ -3,7 +3,6 @@ import { Text, View, StyleSheet, TouchableOpacity, Animated } from "react-native
 import HappyEasterBanner from '@/components/HappyEasterBanner';
 import ImagePanel from '@/components/imagePanel';
 
-
 const Index = () => {
   return (
     <View style={styles.container}>
