@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
     resizeMode: 'contain',
   },
   daffodil: {
-    paddingTop: 325
+    paddingTop: 240,
   },
 });
 
