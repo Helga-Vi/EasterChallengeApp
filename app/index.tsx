@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Text, View, StyleSheet, TouchableOpacity, Animated } from "react-native";
 import HappyEasterBanner from '@/components/HappyEasterBanner';
 import ImagePanel from '@/components/ImagePanel';
-import { playSound } from '@/soundManager';
+import { playSound } from '@/SoundManager';
 
 const Index = () => {
   return (
