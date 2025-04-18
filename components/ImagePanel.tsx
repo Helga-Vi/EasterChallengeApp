@@ -16,11 +16,11 @@ const styles = StyleSheet.create({
   imageContainer: {
     flex: 1,
     flexDirection: 'row',
-    justifyContent: 'space-around',
+    justifyContent: 'space-between',
     width: '100%',
   },
   image: {
-    width: '100%',
+    width: '48%',
     height: 'auto',
     resizeMode: 'contain',
   },
