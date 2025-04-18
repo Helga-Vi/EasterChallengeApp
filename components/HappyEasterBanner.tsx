@@ -49,9 +49,7 @@ const styles = StyleSheet.create({
     fontSize: 40,
     fontWeight: 'bold',
     color: '#FF6347',
-    textShadowOffset: { width: 2, height: 2 },
-    textShadowRadius: 5,
-    textShadowColor: 'rgba(255,255,255,0.5)',
+    textShadowColor: 'rgba(255,255,255,0.5) 2px 2px 5px',
   },
 });
 
