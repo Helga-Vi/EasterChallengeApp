@@ -1,9 +1,10 @@
 // ImagePanel.tsx
 
-import React from 'react';
-import { View, Image, StyleSheet } from 'react-native';
+import React, {useState} from 'react';
+import { View, Image, StyleSheet, TouchableOpacity, Text } from 'react-native';
 
 const ImagePanel = () => {
+
   return (
     <View style={styles.imageContainer}>
       <Image source={require('../assets/images/FREE-Daffodils-Clipart-.png')} style={[styles.image, styles.daffodil]} />
