@@ -6,7 +6,7 @@ import { View, Image, StyleSheet } from 'react-native';
 const ImagePanel = () => {
   return (
     <View style={styles.imageContainer}>
-      <Image source={require('../assets/images/FREE-Daffodils-Clipart-.png')} style={styles.image} />
+      <Image source={require('../assets/images/FREE-Daffodils-Clipart-.png')} style={[styles.image, styles.daffodil]} />
       <Image source={require('../assets/images/chicken.png')} style={styles.image} />
     </View>
   );
@@ -23,6 +23,9 @@ const styles = StyleSheet.create({
     width: '48%',
     height: 'auto',
     resizeMode: 'contain',
+  },
+  daffodil: {
+    paddingTop: 325
   },
 });
 
