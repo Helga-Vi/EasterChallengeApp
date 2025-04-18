@@ -7,7 +7,7 @@ export const playSound = async () => {
   
   if (!sound) {
     sound = await Audio.Sound.createAsync(
-      { uri: 'asset:/sounds/chicken_cluck.mp3' },
+      { uri: 'asset:/sounds/047876_chicken-clucking-68610' },
       { shouldPlay: true }
     );
   }
