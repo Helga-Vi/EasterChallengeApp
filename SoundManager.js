@@ -3,8 +3,8 @@ import * as Audio from 'expo-av';
 
 const SoundManager = () => {
 const [sound, setSound] = useState(null);
-
-export const playSound = async () => {
+ 
+const playSound = async () => {
   console.log('Loading sound');
   
   if (!sound) {
