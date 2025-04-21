@@ -5,33 +5,31 @@ import { View, Text, StyleSheet, Animated } from "react-native";
 
 interface HappyEasterBannerState {
   isVisible: boolean;
-  opacity: number;
 }
 
 const HappyEasterBanner = () => {
   const [state, setState] = useState<HappyEasterBannerState>({
     isVisible: false,
-    opacity: 0,
   });
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setState(prevState => {
-        if (prevState.opacity === 1) return { ...prevState, opacity: 0 };
-        return { ...prevState, opacity: prevState.opacity + 0.01 };
-      });
-    }, 50);
+      setState(prevState => ({
+        ...prevState,
+        isVisible: !prevState.isVisible,
+      }));
+    }, 300);
 
     return () => clearInterval(timer);
   }, []);
 
-  const { opacity } = state;
+  const { isVisible } = state;
 
   return (
     <Animated.View style={[
       styles.textContainer,
-      { opacity },
-      { marginTop: 75}
+      { display: isVisible ? 'flex' : 'none' },
+      { marginTop: 50},
     ]}>
       <Text style={styles.textStyle}>Happy Easter!</Text>
     </Animated.View>
@@ -40,10 +38,19 @@ const HappyEasterBanner = () => {
 
 const styles = StyleSheet.create({
   textContainer: {
-    opacity: 0,
-    transitionProperty: 'opacity',
-    transitionDuration: '500ms',
-    marginBottom: 50, 
+    position: 'absolute', // Keep it in place
+    top: 15, // Position at the bottom of the screen
+    left: 0, 
+    right: 0,
+    width: '100%', // Set a fixed width
+    height: 60, // Set a fixed height
+    alignItems: 'center',
+    justifyContent: 'center',
+    overflow: 'hidden',
+    borderRadius: 10, 
+    paddingBottom: 20,
+    transitionProperty: 'all',
+    transitionDuration: '100ms', 
   },
   textStyle: {
     fontSize: 40,
