@@ -2,10 +2,32 @@ import React, { useState, useEffect } from 'react';
 import { Text, View, StyleSheet, TouchableOpacity, Animated } from "react-native";
 import HappyEasterBanner from '@/components/HappyEasterBanner';
 import ImagePanel from '@/components/ImagePanel';
-import playSound from '@/SoundManager';
 
 const Index = () => {
 
+  const [sound, setSound] = useState();
+
+  async function playSound() {
+
+    console.log('Loading sound');
+    
+    const { sound } = await Audio.Sound.createAsync(
+        require('./assets/sounds/047876_chicken-clucking-68610.mp3')
+      );
+      setSound(sound)
+      console.log('Playing Sound');
+      await sound.playAsync();
+  }
+
+      useEffect(() => {
+        return sound
+          ? () => {
+              console.log('Unloading Sound');
+              sound.unloadAsync();
+            }
+          : undefined;
+      }, [sound]);
+         
   return (
     <View style={styles.container}>
       <HappyEasterBanner />
