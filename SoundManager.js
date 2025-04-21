@@ -5,12 +5,12 @@ async function playSound() {
   console.log('Loading sound');
   
   const { sound } = await Audio.Sound.createAsync(
-      require('./assets/sounds/047876_chicken-clucking-6861.mp3')
+      require('./assets/sounds/047876_chicken-clucking-68610.mp3')
     );
 
     console.log('Playing Sound');
     await sound.playAsync();
-    
+
     return () => {
       if (sound) {
         console.log('Unloading Sound');
