@@ -6,7 +6,7 @@ import { Audio } from 'expo-av';
 
 const Index = () => {
 
-  const [sound, setSound] = useState();
+  const [sound, setSound] = useState<Audio.Sound | null>(null);;
 
   async function playSound() {
 
