@@ -13,7 +13,7 @@ const Index = () => {
     console.log('Loading sound');
     
     const { sound } = await Audio.Sound.createAsync(
-        require('./assets/sounds/047876_chicken-clucking-68610.mp3')
+        require('@/assets/sounds/047876_chicken-clucking-68610.mp3')
       );
       setSound(sound)
       console.log('Playing Sound');
