@@ -2,9 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { Text, View, StyleSheet, TouchableOpacity, Animated } from "react-native";
 import HappyEasterBanner from '@/components/HappyEasterBanner';
 import ImagePanel from '@/components/ImagePanel';
-import { playSound } from '@/SoundManager';
+import playSound from '@/SoundManager';
 
 const Index = () => {
+
   return (
     <View style={styles.container}>
       <HappyEasterBanner />
