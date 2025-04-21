@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
   textStyle: {
     fontSize: 40,
     fontWeight: 'bold',
-    color: '#FF6347',
+    color: '#FF7E70',
     textShadowColor: 'rgba(255,255,255,0.5) 2px 2px 5px',
   },
 });
