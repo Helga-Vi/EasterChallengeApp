@@ -8,7 +8,7 @@ const ImagePanel = () => {
   return (
     <View style={styles.imageContainer}>
       <Image source={require('../assets/images/FREE-Daffodils-Clipart-.png')} style={[styles.image, styles.daffodil]} />
-      <Image source={require('../assets/images/chicken.png')} style={styles.image} />
+      <Image source={require('../assets/images/chicken.png')} style={[styles.image, styles.chicken]} />
     </View>
   );
 };
@@ -19,6 +19,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     width: '100%',
+    paddingTop: 75,
+    paddingBottom: 75,
   },
   image: {
     width: '48%',
@@ -27,7 +29,12 @@ const styles = StyleSheet.create({
   },
   daffodil: {
     paddingTop: 240,
+    marginLeft: 50,
   },
+  chicken: {
+    marginRight: 50,
+  }
+
 });
 
 export default ImagePanel;
