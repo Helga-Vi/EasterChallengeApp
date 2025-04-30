@@ -2,6 +2,8 @@
 
 This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
 
+It's a demo project showing an Easter greeting consisting of an animated "Happy Easter" banner, an image field, and a button that when clicked plays a sound. 
+
 ## Get started
 
 1. Install dependencies
